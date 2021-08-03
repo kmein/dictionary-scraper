@@ -7,6 +7,9 @@ import Text.HTML.Scalpel
 import Util
 import Types
 
+url :: String
+url = "dictionary.cambridge.org"
+
 scrapeEntry :: Scraper String Entry
 scrapeEntry = do
   entry <- text' $ ("div" @: [hasClass "pos-header"]) // ("span" @: [hasClass "headword"]) // ("span" @: [hasClass "hw"])
