@@ -1,12 +1,9 @@
 cabal-version:      2.4
 name:               dictionary-scraper
 version:            0.1.0
--- A short (one-line) description of the package.
--- synopsis:
 license:            MIT
 author:             Kierán Meinhardt
 maintainer:         kmein@posteo.de
-extra-source-files: CHANGELOG.md
 
 executable dics
     main-is:          Main.hs
@@ -16,7 +13,7 @@ executable dics
     build-depends:    base ^>=4.14.1.0
                     , scalpel ^>=0.6.2
                     , aeson ^>=1.5.6.0
-                    , bytestring 
+                    , bytestring
                     , text
                     , optparse-applicative ^>=0.16.1.0
     hs-source-dirs:   app
