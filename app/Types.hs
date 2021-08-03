@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
+
 module Types where
 
 import Data.Aeson

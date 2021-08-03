@@ -1,11 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+
 module Cambridge where
 
 import Control.Applicative
 import Text.HTML.Scalpel
-import Util
 import Types
+import Util
 
 url :: String
 url = "dictionary.cambridge.org"
