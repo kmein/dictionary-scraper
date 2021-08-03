@@ -1,12 +1,11 @@
 module Util where
 
 import Data.Char (isSpace)
+import Data.Text (Text, strip)
 import Text.HTML.Scalpel
 
-text' :: Selector -> Scraper String String
-text' = fmap trim . text
-  where
-    trim = f . f where f = reverse . dropWhile isSpace
+text' :: Selector -> Scraper Text Text
+text' = fmap strip . text
 
 listToMaybe' :: [a] -> Maybe [a]
 listToMaybe' [] = Nothing

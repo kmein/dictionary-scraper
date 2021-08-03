@@ -4,6 +4,7 @@
 module Cambridge where
 
 import Control.Applicative
+import Data.Text (Text)
 import Text.HTML.Scalpel
 import Types
 import Util
@@ -11,13 +12,13 @@ import Util
 url :: String
 url = "dictionary.cambridge.org"
 
-scrapeEntry :: Scraper String Entry
+scrapeEntry :: Scraper Text Entry
 scrapeEntry = do
   entry <- text' $ ("div" @: [hasClass "pos-header"]) // ("span" @: [hasClass "headword"]) // ("span" @: [hasClass "hw"])
   senses <- chroots ("div" @: [hasClass "dsense"]) scrapeSense
   return Entry {..}
 
-scrapeSynonym :: Scraper String Synonym
+scrapeSynonym :: Scraper Text Synonym
 scrapeSynonym = do
   synonym <- text' $ "span" @: [hasClass "x-h"]
   synonymUsage <- optional $ text' $ "span" @: [hasClass "usage"]
@@ -25,7 +26,7 @@ scrapeSynonym = do
   info <- optional $ text' $ "span" @: [hasClass "x-num"]
   return Synonym {..}
 
-scrapeSense :: Scraper String Sense
+scrapeSense :: Scraper Text Sense
 scrapeSense = do
   note <- optional $ text' $ "span" @: [hasClass "dvar"]
   sense <- optional $ text' $ "span" @: [hasClass "dsense_hw"]
