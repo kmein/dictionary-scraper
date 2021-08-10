@@ -8,6 +8,7 @@ maintainer:         kmein@posteo.de
 executable dics
     main-is:          Main.hs
     other-modules:    Cambridge
+                    , Leo
                     , Util
                     , Types
     build-depends:    base ^>=4.14.1.0

@@ -6,30 +6,21 @@ import Data.Aeson
 import Data.Text (Text)
 import GHC.Generics (Generic)
 
-data Entry = Entry
-  { entry :: Text,
-    senses :: [Sense]
-  }
-  deriving (Show, Generic)
-
-instance ToJSON Entry where
-  toJSON = genericToJSON defaultOptions {omitNothingFields = True}
-
-data Sense = Sense
-  { sense :: Maybe Text,
+data Definition = Definition
+  { definiendum :: Maybe Text,
     partOfSpeech :: Maybe Text,
     guideWord :: Maybe Text,
     note :: Maybe Text,
     grammar :: Maybe Text,
     usage :: Maybe Text,
     level :: Maybe Text,
-    definition :: Maybe Text,
+    definiens :: Maybe Text,
     examples :: Maybe [Text],
     synonyms :: Maybe [Synonym]
   }
   deriving (Show, Generic)
 
-instance ToJSON Sense where
+instance ToJSON Definition where
   toJSON = genericToJSON defaultOptions {omitNothingFields = True}
 
 data Synonym = Synonym
